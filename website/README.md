@@ -17,19 +17,13 @@
 
 ## 放到 GitHub Pages
 
-网站可在本机直接预览。仓库保持私有时，GitHub Pages 不能作为公开下载站使用；需要公开介绍页时，再单独评估并建立公开站点仓库。
+网站可以直接使用 GitHub Pages 托管。此项目仓库保持私有时，个人账户需要 GitHub Pro 或更高方案才能发布 Pages；GitHub Free 个人账户要求仓库公开。即使源仓库是私有的，公开发布的网站和其中的下载文件仍可被任何人访问。
 
-推荐使用单独的公开网站仓库：
+仓库内的 `.github/workflows/publish-website.yml` 只发布 `website/` 目录，不会发布其他应用源码。首次设置时，在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。之后每次更新 `website/` 并推送到 `main`，GitHub Actions 会自动部署。默认网址为 `https://yjr20250822-ctrl.github.io/AgentBridge/`；也可以在 Settings → Pages 查看实际地址。
 
-1. 创建仓库，将本目录中的网页和 `assets/` 放到仓库根目录。
-2. 将三个安装文件作为 GitHub Release 附件上传。Mac 包若公开分发，应先完成适合公开下载的签名、公证与新设备安装验收。
-3. 在 `index.html` 中，把三个下载链接从 `downloads/...` 改为 Release 给出的实际下载 URL。可搜索 `data-download="windows"`、`data-download="macos"` 和 `data-download="android"` 找到对应入口。无需修改 JavaScript。
-4. 在仓库 Settings → Pages 中选择 Deploy from a branch、`main` 和 `/ (root)`，保存。
-5. 发布后用 GitHub 给出的 `https://用户名.github.io/仓库名/` 地址查看，并验证三个下载入口。
+公开网站会包含 `website/downloads/` 中的 Windows 安装包、Android APK 和 Mac DMG。当前网站和安装包是预览版本；Mac DMG 未经 Apple 公证，新设备可能会显示 Gatekeeper 安全提示。不要把真实电脑 HTTPS 地址、配对码或令牌填进这个公开网站。
 
-网站没有根路径资源引用，因此可以发布到项目子路径。不要把真实电脑 HTTPS 地址、配对码或令牌填进这个公开介绍站。
-
-也可以通过 Git 客户端把 `downloads/` 一起提交并直接提供文件下载，此时不必修改链接。网页与安装包的公开发布仍应等软件的仓库整理和新设备安装验收完成。
+如果 GitHub 方案不支持从私有仓库发布 Pages，请保持应用仓库私有，并将本目录单独复制到一个公开的网站仓库。不要为了托管网站而公开整个应用源码仓库。
 
 ## 更新
 
