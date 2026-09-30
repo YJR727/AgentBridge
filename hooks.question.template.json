@@ -1,0 +1,18 @@
+{
+  "_说明": "阶段二/阶段三可选的 UserPromptSubmit 钩子：把「Codex 在等你回答」也推到手机。默认不装，确认 PermissionRequest 跑通后再加。",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node __HOOK_MJS__ --mode question",
+            "commandWindows": "node __HOOK_MJS__ --mode question",
+            "timeoutSec": 120,
+            "statusMessage": "等待手机回答…"
+          }
+        ]
+      }
+    ]
+  }
+}

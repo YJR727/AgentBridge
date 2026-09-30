@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "host": "127.0.0.1",
+  "port": 4571,
+  "hookToken": null,
+  "appToken": null,
+  "vapid": {
+    "subject": "mailto:you@example.com"
+  },
+  "push": {
+    "decisionWaitMs": 90000,
+    "decisionWaitMaxMs": 240000,
+    "markdownStrip": true
+  },
+  "notify": {
+    "replyCompleted": true,
+    "success": "silent",
+    "contentMode": "summary",
+    "summaryMaxChars": 140,
+    "batchWindowMs": 60000
+  },
+  "_说明": "仅作字段参考；首次启动自动生成密钥。不要把示例凭证当成可用令牌。"
+}

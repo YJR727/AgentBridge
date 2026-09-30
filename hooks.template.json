@@ -1,0 +1,9 @@
+{
+  "description": "Agent Bridge：手机审批、轮次结束和中断撤权；保留原 notify。",
+  "hooks": {
+    "PermissionRequest": [{"hooks":[{"type":"command","command":"__COMMAND__ --mode permission","timeout":105,"statusMessage":"等待手机查看完整请求并审批…"}]}],
+    "Stop": [{"hooks":[{"type":"command","command":"__COMMAND__ --mode notice","timeout":5}]}],
+    "Interrupt": [{"hooks":[{"type":"command","command":"__COMMAND__ --mode notice","timeout":3}]}],
+    "SessionEnd": [{"hooks":[{"type":"command","command":"__COMMAND__ --mode notice","timeout":3}]}]
+  }
+}

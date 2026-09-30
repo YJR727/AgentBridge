@@ -1,0 +1,40 @@
+data/
+dist/
+.android-tools/
+.codex/
+.phase3/
+.superpowers/
+.ui-check/
+
+# Generated build products and downloaded toolchains
+android/build/
+android-island/build/
+desktop/build/
+desktop/build-tools/
+desktop-mac/.build/
+
+# Local verification traces and previews may contain machine-specific details
+android/*.txt
+android/*.sha256
+android/*-preview.png
+android-island/PROGRESS.md
+android/PLAN.md
+docs/superpowers/
+
+# Local development notes and machine-specific state
+HANDOFF.md
+PROGRESS.md
+PHASE2.md
+PHASE3.md
+agent-bridge-prompt.revised.md
+
+# Credentials and OS metadata
+.env*
+*.p12
+*.mobileprovision
+*.keystore
+*.jks
+*.pem
+*.key
+.DS_Store
+Thumbs.db

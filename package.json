@@ -1,0 +1,26 @@
+{
+  "name": "agent-bridge",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "description": "把 Codex 的完成/批准/提问/出错事件推到手机，并能从手机直接回复。零 npm 依赖。",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "reset-pairing": "node server.mjs --reset-pairing",
+    "check": "node server.mjs --check",
+    "test": "node tools/run-tests.mjs",
+    "selftest": "node tools/selftest.mjs",
+    "icons": "node tools/make-icons.mjs",
+    "install-hooks": "node tools/install.mjs --hooks",
+    "install-notify": "node tools/install.mjs --notify",
+    "status": "node tools/install.mjs --status",
+    "disable": "node tools/install.mjs --disable",
+    "enable": "node tools/install.mjs --enable",
+    "uninstall": "node tools/install.mjs --uninstall"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

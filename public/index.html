@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agent Bridge · Agent Bridge</title><meta name="theme-color" content="#F4F7F6">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Agent Bridge">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icon-192.png"><link rel="stylesheet" href="/app.css">
+</head><body>
+<main class="app-shell" id="app-shell">
+<section id="view-chat" class="page chat-page" aria-label="聊天">
+<header class="chat-header"><button id="choose-thread" class="thread-title" aria-label="选择或切换电脑聊天"><span id="thread-title">选择电脑上的聊天</span><span aria-hidden="true">⌄</span></button><div id="chat-connection" class="chat-connection" role="status"><span class="connection-dot" aria-hidden="true"></span><span id="chat-connection-text">未连接 · 等待确认</span></div><p id="chat-status" class="muted" role="status">配对后，先在电脑打开对应聊天。</p></header>
+<div class="chat-reading" id="chat-reading"><article class="card reply-card"><div class="reply-heading"><span class="muted">最新完整回复</span><button id="copy-reply" class="compact" disabled>复制</button></div><div id="reply" class="markdown"><p>尚无已完成回复，新回复完成后会自动显示。</p></div><p id="reply-time" class="reply-time hidden"></p></article><button id="pending-banner" class="wide hidden"></button></div>
+<form id="composer" class="composer"><p id="send-state" class="muted hidden" role="status"></p><div class="composer-row"><label class="sr-only" for="command">发给 Codex 的文字指令</label><textarea id="command" rows="1" maxlength="16000" placeholder="给 Codex 发指令…"></textarea><button id="send-command" class="primary" disabled>发送</button></div></form>
+</section>
+<section id="view-pending" class="page scrolling hidden" aria-label="待办"><div class="page-content"><h1>待办</h1><p class="muted">需要回答的问题与待审批的申请</p><div id="pending-items"></div><p id="empty-pending" class="empty">当前没有待办，新的问题和申请会显示在这里。</p><button id="open-history" class="wide">查看近期记录 <span aria-hidden="true">›</span></button></div></section>
+<section id="view-settings" class="page scrolling hidden" aria-label="设置"><div class="page-content"><h1>设置</h1>
+<section class="card"><h2>电脑连接</h2><p id="connection-state" class="connection" role="status">连接中…</p><label for="computer-address">当前电脑地址</label><input id="computer-address" type="url" readonly><p class="muted">电脑和手机的 Tailscale 需保持在线。</p><details id="pairing"><summary>重新配对</summary><p class="muted">先在电脑配对窗点击“重新配对，生成新码”，再填写五分钟有效的配对码。重新配对会撤销旧手机权限。</p><label for="pair-code">电脑显示的配对码</label><input id="pair-code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="8" placeholder="XXXXXXXX"><button id="btn-pair" class="primary wide">确认配对</button><p id="pair-error" class="error" role="status"></p></details></section>
+<section class="card"><h2>桌面应用</h2><p id="app-mode" class="muted" role="status">可添加到主屏幕，像 App 一样打开。</p><details id="home-screen-guide"><summary>添加到 iPad / iPhone 主屏幕</summary><ol><li>在 Safari 中打开当前地址，点分享，再选“添加到主屏幕”。</li><li>名称设为“Agent Bridge”。如果出现“作为网页 App 打开”，保持开启，再点添加。</li><li>返回主屏幕，点击新图标；在这个独立窗口里完成配对并开启通知。</li></ol><p class="muted">以后从桌面图标进入。添加图标后如果提示未配对，请在新窗口里重新配对。电脑手机桥和 Tailscale 仍需在线。</p></details></section>
+<section class="card"><h2>通知</h2><p id="push-state" class="muted" role="status">正在检查通知状态…</p><button id="btn-enable-push" class="primary wide">开启通知</button><p class="muted">苹果设备需 iOS / iPadOS 16.4 或以上，从主屏幕图标进入后开启通知。网页在后台通过推送提醒，打开后更新内容。</p><details><summary>通知检查</summary><div class="stack"><button id="btn-resub">重新登记通知订阅</button><button id="btn-probe">发送通知探测</button></div><pre id="s-pushes" class="diagnostic">还没有推送记录</pre></details></section>
+<section class="card"><h2>工具</h2><button id="btn-test-event" class="wide">发送测试审批 <span aria-hidden="true">›</span></button><button id="btn-refresh" class="wide">刷新连接 <span aria-hidden="true">›</span></button><button id="btn-unpair" class="danger wide">清除网页配对凭证</button><p class="muted">仅清除本浏览器的凭证，不会替您重置电脑配对。</p><details><summary>关于手机桥</summary><p class="muted">网页版 0.4.2 · 继续电脑上的已有聊天，查看回复，回答问题和审批。测试审批不会执行电脑命令。</p></details></section>
+</div></section>
+<nav class="bottom-nav" id="bottom-nav" aria-label="主导航">
+<button data-page="chat" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-6 3V6a2 2 0 0 1 2-2Z"/><path d="M7 9h10M7 13h7"/></svg><span>聊天</span></button>
+<button data-page="pending"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m8 9 1 1 2-2m-3 8 1 1 2-2m3-6h3m-3 7h3"/></svg><span id="pending-label">待办</span></button>
+<button data-page="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3-.6 2.2-2 .9-2.1-.5L2 9l1.5 1.7v2.6L2 15l2.3 3.4 2.1-.5 2 .9L9 21h6l.6-2.2 2-.9 2.1.5L22 15l-1.5-1.7v-2.6L22 9l-2.3-3.4-2.1.5-2-.9L15 3Z"/><circle cx="12" cy="12" r="3"/></svg><span>设置</span></button>
+</nav></main>
+<dialog id="detail-dialog" aria-labelledby="detail-title"><div class="detail-layout"><header class="detail-header"><button id="close-detail">‹ 返回</button><h2 id="detail-title"></h2></header><div id="detail-content" class="detail-content"></div><footer class="detail-footer"><p id="detail-feedback" class="muted" role="status"></p><div id="detail-actions" class="detail-actions"></div></footer></div></dialog>
+<div id="toast" class="toast" role="status"></div><script src="/app.js" type="module"></script>
+</body></html>

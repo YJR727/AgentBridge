@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f7">
+  <meta name="description" content="Agent Bridge 让你从 Android 手机和 iPad 接续 Windows 或 Mac 上的 Codex 聊天，查看回复、回答问题和处理审批。下载 Windows、macOS 与 Android 预览版。">
+  <meta property="og:title" content="Agent Bridge · 把 Codex 带在身边">
+  <meta property="og:description" content="手机接续电脑聊天，问题看清再回答，任务完成有提醒。">
+  <meta property="og:type" content="website">
+  <title>Agent Bridge · 把 Codex 带在身边</title>
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-mark" viewBox="0 0 32 32"><path d="M5 22V12h6v10M21 22V12h6v10M5 12h22M11 22a5 5 0 0 1 10 0"/></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M3 8h18"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8m-8 4h5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="m8 9 2 2 5-5M8 16h8"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-11 12a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-3 14h2"/></symbol>
+    <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="3"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l2-2"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="m9 3-.6 3-2 .9-2.6-1.3-2 3.5L4 11v2l-2.2 1.9 2 3.5L6.4 17l2 .9.6 3h4l.6-3 2-.9 2.6 1.4 2-3.5L18 13v-2l2.2-1.9-2-3.5-2.6 1.3-2-.9L13 3Z"/><circle cx="11" cy="12" r="3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24"><path stroke="none" fill="currentColor" d="M2 3h9v8H2zm11 0h9v8h-9zM2 13h9v8H2zm11 0h9v8h-9z"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="m4 16-3 4h22l-3-4"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Agent Bridge 首页"><span class="brand-mark"><svg class="icon"><use href="#i-mark"/></svg></span><span>Agent Bridge</span></a>
+      <button class="menu-button" type="button" aria-label="展开导航" aria-expanded="false" aria-controls="site-nav"><svg class="icon"><use href="#i-menu"/></svg></button>
+      <nav id="site-nav" aria-label="主导航"><a href="#features">功能</a><a href="#setup">开始使用</a><a href="#serve">配置 HTTPS</a><a href="#faq">常见问题</a><a class="nav-download" href="#download">获取 Agent Bridge</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR CODEX, WITH YOU</div>
+        <h1 id="hero-title">离开电脑，<br>也能接着<span class="highlight">做。</span></h1>
+        <p class="hero-description">把电脑上的 Codex 带在身边。<br>手机发指令、看回复、回答问题，<br>每一次审批，都先看清楚。</p>
+        <div class="hero-actions"><a class="button button-primary" href="#download"><svg class="icon"><use href="#i-laptop"/></svg>选择电脑版本</a><a class="button button-plain" href="#features">看看它能做什么</a></div>
+        <div class="hero-platforms"><span><svg class="icon"><use href="#i-window"/></svg>Windows / Mac 电脑端</span><span><svg class="icon"><use href="#i-phone"/></svg>Android / iPad</span></div>
+        <p class="hero-note">独立开发 · 当前为预览版</p>
+      </div>
+      <div class="product-stage" aria-label="Agent Bridge 聊天、审批与通知的交互演示">
+        <div class="stage-label"><span>一条聊天，从电脑到手机</span><span>功能演示</span></div>
+        <div class="desktop-demo">
+          <div class="window-bar"><div class="window-controls"><i></i><i></i><i></i></div><span>Agent Bridge</span><svg class="icon"><use href="#i-window"/></svg></div>
+          <div class="desktop-layout">
+            <aside class="demo-sidebar" aria-label="演示聊天列表"><div class="sidebar-brand"><svg class="icon"><use href="#i-mark"/></svg>我的工作台</div><p>电脑上的聊天</p><div class="demo-thread selected"><svg class="icon"><use href="#i-chat"/></svg><span>更新项目首页</span></div><div class="demo-thread"><svg class="icon"><use href="#i-chat"/></svg><span>检查登录流程</span></div><div class="demo-thread"><svg class="icon"><use href="#i-chat"/></svg><span>准备发布说明</span></div><div class="sidebar-bottom"><span class="status-dot"></span>手机已连接</div></aside>
+            <div class="desktop-content"><div class="desktop-thread-head"><h2>更新项目首页</h2><span class="mini-tag">工作中</span></div><div class="desktop-message user-message">把页面做得更简洁，保留下载入口。</div><div class="assistant-label"><span class="assistant-symbol">✳</span>Codex</div><p class="desktop-response">已经整理好页面结构，接下来更新首页样式。</p><div class="code-preview"><span class="code-comment">// A little closer. A little simpler.</span><span><b>const</b> nextStep = <em>'Keep going'</em>;</span><span><b>await</b> bridge.connect();</span></div><div class="desktop-current"><svg class="icon"><use href="#i-link"/></svg>从手机接着聊</div></div>
+          </div>
+        </div>
+        <div class="phone-demo">
+          <div class="phone-app-top"><span class="brand-small"><svg class="icon"><use href="#i-mark"/></svg>Agent Bridge</span><span class="phone-top-time">09:41</span></div>
+          <div class="phone-heading"><span>更新项目首页</span><div><span class="status-dot"></span>已连接电脑</div></div>
+          <div class="phone-screen" id="demo-content" aria-live="polite">
+            <div class="phone-message">把下载按钮再突出一点。</div><div class="phone-reply"><div class="phone-reply-label"><span class="assistant-symbol">✳</span>最新回复</div><p>首页已更新，下载入口更清晰了。</p><p class="phone-reply-detail">调整了按钮层级，保留各设备的下载与使用入口。</p><div class="phone-reply-meta"><svg class="icon"><use href="#i-check"/></svg>耗时 1 分 24 秒 · 09:41 完成</div></div>
+          </div>
+          <div class="phone-composer"><span>给 Codex 发指令…</span><span class="mock-send">发送</span></div>
+          <div class="phone-nav" aria-hidden="true"><span class="active"><svg class="icon"><use href="#i-chat"/></svg>聊天</span><span><svg class="icon"><use href="#i-task"/></svg>待办</span><span><svg class="icon"><use href="#i-settings"/></svg>设置</span></div>
+        </div>
+        <div class="demo-notification"><span class="notification-icon"><svg class="icon"><use href="#i-bell"/></svg></span><div><strong id="notification-title">Codex 已完成回复</strong><span id="notification-text">更新项目首页 · 点击查看完整内容</span></div><span>现在</span></div>
+        <div class="demo-switcher" role="group" aria-label="切换功能演示"><button type="button" data-demo="chat" aria-pressed="true">接着聊</button><button type="button" data-demo="approval" aria-pressed="false">处理审批</button><button type="button" data-demo="done" aria-pressed="false">查看完成</button></div>
+      </div>
+    </section>
+    <div class="platform-strip"><div class="container"><span>一台电脑，随身连接。</span><div><svg class="icon"><use href="#i-window"/></svg>Windows</div><div><svg class="icon"><use href="#i-laptop"/></svg>macOS</div><div><svg class="icon"><use href="#i-phone"/></svg>Android</div><div><svg class="icon"><use href="#i-tablet"/></svg>iPhone & iPad 网页版</div><span class="strip-preview">PREVIEW</span></div></div>
+    <section class="features container section" id="features" aria-labelledby="features-title">
+      <div class="section-heading"><div><span class="eyebrow">STAY IN THE LOOP</span><h2 id="features-title">任务在继续，<br>你也能参与。</h2></div><p>不用一直守在电脑前。<br>需要你的一句话、一个决定，手机也能接住。</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="feature-top"><span>01 / CONTINUE</span><svg class="icon"><use href="#i-chat"/></svg></div><h3>接续原来的聊天</h3><p>选择电脑上已有的会话，直接发出下一条指令。完整回复和代码，手机上也能看、能复制。</p><div class="feature-example"><span class="example-avatar">你</span><span>把这处修改也加上。</span></div></article>
+        <article class="feature"><div class="feature-top"><span>02 / DECIDE</span><svg class="icon"><use href="#i-task"/></svg></div><h3>看清楚，再作决定</h3><p>审批显示请求详情与来源聊天，选项题、文字题也能回答。Mac 预览版目前监测已选聊天，其他聊天的后台待办提醒仍待验收。</p><div class="feature-example choice-example"><span class="choice-yes"><svg class="icon"><use href="#i-check"/></svg>批准</span><span>拒绝</span><span class="example-caption">由你决定</span></div></article>
+        <article class="feature"><div class="feature-top"><span>03 / FOLLOW UP</span><svg class="icon"><use href="#i-bell"/></svg></div><h3>完成之后，有个提醒</h3><p>回复完成后收到提醒，点开查看结果、实际耗时和完成时间。手机与 iPad 还能各选各的聊天。</p><div class="feature-example completion-example"><span class="completion-tick"><svg class="icon"><use href="#i-check"/></svg></span><span>本轮已完成<small>耗时 2 分 18 秒</small></span></div></article>
+      </div>
+    </section>
+    <section class="connection-section" aria-labelledby="connection-title"><div class="container connection-inner">
+        <div class="connection-copy"><span class="eyebrow">YOUR COMPUTER. YOUR CONNECTION.</span><h2 id="connection-title">让连接回到<br>你的电脑。</h2><p>Agent Bridge 在 Windows 或 Mac 上运行，通过 Tailscale 私有网络连接移动设备。你不需要为它另租一台服务器。</p><div class="connection-points"><span><svg class="icon"><use href="#i-lock"/></svg>配对后才能访问</span><span><svg class="icon"><use href="#i-link"/></svg>连接自己的电脑</span></div></div>
+      <div class="network-diagram" aria-label="连接路径：电脑上的 Codex 与 Agent Bridge，经 Tailscale 私有网络连接 Android 和 iPad">
+        <div class="network-device desktop-node"><div class="network-icon"><svg class="icon"><use href="#i-window"/></svg></div><strong>你的电脑</strong><span>Codex + Agent Bridge</span></div>
+        <div class="network-path"><div class="network-line"></div><div class="network-link-icon" aria-hidden="true"><svg class="icon"><use href="#i-link"/></svg></div><span>Tailscale</span><small>私有网络 · HTTPS</small><div class="network-line"></div></div>
+        <div class="network-devices"><div class="network-device"><svg class="icon"><use href="#i-phone"/></svg><strong>Android</strong></div><div class="network-device"><svg class="icon"><use href="#i-tablet"/></svg><strong>iPad / iPhone</strong></div></div>
+      </div>
+      <p class="connection-footnote">电脑、Codex 和网络连接需保持运行。模型请求仍沿用 Codex 自身的服务。</p>
+    </div></section>
+    <section class="setup container section" id="setup" aria-labelledby="setup-title"><div class="section-heading"><div><span class="eyebrow">A SIMPLE START</span><h2 id="setup-title">准备好连接，<br>就能带着它走。</h2></div><p>电脑运行任务，手机接续操作。<br>首次使用需要完成网络和 Codex 连接配置。</p></div><div class="steps">
+      <article class="step"><span class="step-number">1</span><div><h3>电脑装好 Agent Bridge</h3><p>选择 Windows 或 Mac 版并打开 Codex，保持目标聊天在电脑上已加载。</p><a href="#download">选择电脑端下载</a></div></article>
+      <article class="step"><span class="step-number">2</span><div><h3>把两端连到同一个网络</h3><p>电脑和移动设备开启 Tailscale。电脑配置 Serve HTTPS，再把电脑地址填进移动端。</p><a href="#serve">查看 Serve HTTPS 操作步骤</a></div></article>
+      <article class="step"><span class="step-number">3</span><div><h3>配对，选聊天，开始用</h3><p>Android 安装 APK，iPad 用 Safari 打开电脑地址。输入配对码，再选择想继续的聊天。</p><button class="text-button" type="button" data-guide="ipad">查看 iPad 使用方式</button></div></article>
+    </div></section>
+    <section class="serve-guide container section" id="serve" aria-labelledby="serve-title">
+      <div class="section-heading"><div><span class="eyebrow">PRIVATE HTTPS CONNECTION</span><h2 id="serve-title">把手机连到<br>正在运行的电脑。</h2></div><p>Serve HTTPS 只把电脑上的 Agent Bridge 提供给同一 Tailscale 私有网络内的设备。以下命令在电脑上运行，手机不用输入命令。</p></div>
+      <div class="serve-prerequisites"><strong>开始前</strong><span>① 电脑打开 Agent Bridge 和 Codex</span><span>② 电脑、手机或 iPad 登录同一个 Tailscale 网络</span><span>③ 先在电脑浏览器打开 <code>http://127.0.0.1:4571/api/health</code>，确认返回 <code>"ok":true</code></span></div>
+      <div class="serve-platforms">
+        <article class="serve-card"><div class="serve-card-title"><svg class="icon"><use href="#i-windows"/></svg><h3>Windows 电脑</h3></div><p>打开 PowerShell。若已给 Tailscale 配过其他 Serve 路由，先看第一条命令的结果，避免覆盖原有 443 根路由。</p><span class="serve-label">1 · 查看已有路由</span><pre><code>&amp; "$env:ProgramFiles\Tailscale\tailscale.exe" serve status</code></pre><span class="serve-label">2 · 开启后台 HTTPS 转发</span><pre><code>&amp; "$env:ProgramFiles\Tailscale\tailscale.exe" serve --bg --https=443 http://127.0.0.1:4571</code></pre><span class="serve-label">3 · 再次检查</span><pre><code>&amp; "$env:ProgramFiles\Tailscale\tailscale.exe" serve status</code></pre><p class="serve-card-note">如果提示找不到程序，请确认 Tailscale 已安装；若装在别处，将命令中的程序路径改成实际路径。</p></article>
+        <article class="serve-card"><div class="serve-card-title"><svg class="icon"><use href="#i-laptop"/></svg><h3>Mac 电脑</h3></div><p>打开“终端”。下面是 Tailscale 官方 Mac App 的常见位置；如果使用其他安装方式，请换成实际的 CLI 路径。</p><span class="serve-label">1 · 查看已有路由</span><pre><code>TAILSCALE_BE_CLI=1 /Applications/Tailscale.app/Contents/MacOS/Tailscale serve status</code></pre><span class="serve-label">2 · 开启后台 HTTPS 转发</span><pre><code>TAILSCALE_BE_CLI=1 /Applications/Tailscale.app/Contents/MacOS/Tailscale serve --bg --https=443 http://127.0.0.1:4571</code></pre><span class="serve-label">3 · 再次检查</span><pre><code>TAILSCALE_BE_CLI=1 /Applications/Tailscale.app/Contents/MacOS/Tailscale serve status</code></pre><p class="serve-card-note">仅在运行 Agent Bridge 的那台 Mac 上执行；Windows 和 Mac 各有自己的 HTTPS 地址。</p></article>
+      </div>
+      <div class="serve-finish"><strong>看到什么算成功？</strong><p>命令显示 <code>https://你的电脑名.…ts.net</code>，且 <code>serve status</code> 显示根路径 <code>/</code> 转发到 <code>http://127.0.0.1:4571</code>。如果提示 <em>Serve is not enabled on your tailnet</em>，先打开命令给出的 Tailscale 授权链接，启用 HTTPS／Serve，再重新执行第 2 步。接着在已连接 Tailscale 的手机浏览器打开这个 HTTPS 根地址，能看到配对页面后，把同一地址填进 Android 应用或在 iPad Safari 使用。</p><p>这里使用的是仅限私有网络的 <strong>Serve</strong>，无需开启公开访问的 Funnel。已有 443 路由指向别的服务时，请先确认用途，不要直接覆盖，也不要运行 <code>tailscale serve reset</code>。</p><a href="https://tailscale.com/docs/reference/tailscale-cli/serve" target="_blank" rel="noopener noreferrer">查看 Tailscale Serve 官方命令说明 ↗</a></div>
+    </section>
+    <section class="downloads" id="download" aria-labelledby="download-title"><div class="container">
+      <div class="download-heading"><span class="eyebrow">TAKE IT WITH YOU</span><h2 id="download-title">下一步，装到你的设备上。</h2><p>桌面端与移动端配合使用。当前提供预览版，建议先在自己的设备上验证。</p></div>
+      <div class="download-grid">
+        <article class="download-card windows-download"><span class="download-platform-icon"><svg class="icon"><use href="#i-windows"/></svg></span><div class="download-card-top"><h3>Windows</h3><span class="release-label">v0.2.5</span></div><p>电脑上的连接中心。状态、配对和日志都在一个窗口里。</p><a class="button button-primary download-file" data-download="windows" href="downloads/AgentBridge-Setup-0.2.5.exe" download>下载 Windows 安装包</a><small>Windows 10 1809+ · x64 · 内置 Node.js</small></article>
+        <article class="download-card"><span class="download-platform-icon"><svg class="icon"><use href="#i-phone"/></svg></span><div class="download-card-top"><h3>Android</h3><span class="release-label">v0.4.2</span></div><p>原生 Android 应用。聊天、审批和后台连接，随手就能打开。</p><a class="button button-outline download-file" data-download="android" href="downloads/agent-bridge-0.4.2.apk" download>下载 Android APK</a><small>Android 8.0+ · 手动安装</small></article>
+        <article class="download-card"><span class="download-platform-icon"><svg class="icon"><use href="#i-tablet"/></svg></span><div class="download-card-top"><h3>iPad / iPhone</h3><span class="release-label">Web App</span></div><p>从 Safari 添加到主屏幕。独立窗口打开，用起来像一个 App。</p><button class="button button-outline" type="button" data-guide="ipad">查看安装步骤</button><small>网页通知需要 iOS / iPadOS 16.4+</small></article>
+        <article class="download-card"><span class="download-platform-icon"><svg class="icon"><use href="#i-laptop"/></svg></span><div class="download-card-top"><h3>macOS</h3><span class="release-label">v0.1.0 · 预览版</span></div><p>原生 Mac 控制窗口。打开安装盘，把 App 拖入“应用程序”即可安装。</p><a class="button button-outline download-file" data-download="macos" href="downloads/AgentBridge-macOS-0.1.0-arm64.dmg" download>下载 Mac 安装盘</a><small>Apple 芯片 · 约 41 MB · 本地测试签名，未公证</small><button class="text-button" type="button" data-guide="mac">查看 Mac 安装步骤</button></article>
+      </div>
+      <div class="download-note"><svg class="icon"><use href="#i-task"/></svg><p>首次配置前，先读<a href="#setup">使用步骤</a>。已有用户覆盖安装即可；源码与公开仓库仍在整理中。</p></div>
+    </div></section>
+    <section class="faq container section" id="faq" aria-labelledby="faq-title"><div><span class="eyebrow">HELP & TROUBLESHOOTING</span><h2 id="faq-title">遇到问题，<br>从这里排查。</h2><p>按安装、连接、配对、聊天和通知整理了常见情况。先看电脑窗口里的服务状态，再看手机上的提示。</p></div><div class="faq-list">
+      <details><summary>Tailscale 显示“Serve is not enabled”怎么办？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">打开命令输出中的 Tailscale 授权链接，在网页上启用 HTTPS／Serve。回到电脑后重新执行<a href="#serve">对应系统的开启命令</a>，再运行 <code>serve status</code> 核对。不要开启 Funnel。</div></details>
+      <details><summary>终端提示找不到 tailscale 命令怎么办？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">先确认 Tailscale 已安装并已登录。Windows 可使用上方 PowerShell 示例中的完整 <code>tailscale.exe</code> 路径；Mac 可使用上方带 <code>TAILSCALE_BE_CLI=1</code> 的完整路径。若装在其他目录，替换成实际程序位置。</div></details>
+      <details><summary>Serve 的 443 端口已有别的服务怎么办？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">先用 <code>serve status</code> 确认现有路由属于什么服务。不要直接执行本页开启命令覆盖 443 根路径，也不要运行 <code>serve reset</code>。需要保留原服务时，请先为 Agent Bridge 规划独立的 HTTPS 路由或端口，并在移动端使用相应地址。</div></details>
+      <details><summary>打开 HTTPS 地址却看到别的网站？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">通常是 Serve 仍把根路径转发到另一个本机服务，或者复制了另一台电脑的地址。对照 <code>serve status</code>：此设备的根路径 <code>/</code> 应转发到 <code>http://127.0.0.1:4571</code>；确认前不要清空已有路由。</div></details>
+      <details><summary>电脑有 HTTPS 地址，但手机提示 unable to resolve host？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">确认手机上的 Tailscale 已连接，并与电脑登录同一个私有网络；从电脑 <code>serve status</code> 复制完整的 <code>https://…ts.net</code> 根地址，检查拼写，不要复制旧电脑的地址。先在手机浏览器打开这个地址；浏览器也无法解析时，先排查 Tailscale 连接和 DNS。</div></details>
+      <details><summary>手机一直 read timeout 或页面打不开？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">先在电脑浏览器打开 <code>http://127.0.0.1:4571/api/health</code>。若不返回 <code>"ok":true</code>，先重开 Agent Bridge；若本机正常，再看 <code>serve status</code> 是否转发到 4571，以及手机 Tailscale 是否在线。网络切换、休眠和系统后台限制也会导致超时。</div></details>
+      <details><summary>手机能打开网页，却提示桌面端没有打开？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">这表示手机已接触到网页服务，但电脑端的 Codex 连接可能尚未建立。打开电脑上的 Codex 和目标聊天，再看 Agent Bridge 窗口状态；确认手机填写的是当前运行 Agent Bridge 的这台电脑的地址。</div></details>
+      <details><summary>配对码不出现、过期或手机重新配不上怎么办？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">在电脑窗口点击“添加设备”生成新码；配对码有效期短，请及时在手机输入。若要撤销所有已配对设备，再用“重新配对”。已经成功的旧设备不需要为了添加新手机而全部重配。</div></details>
+      <details><summary>Windows 双击安装包或程序没有反应？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">确认下载的是 Windows 安装包，安装后从开始菜单打开 Agent Bridge；检查任务栏通知区域是否已有窗口或后台实例。若窗口依然不出现，查看系统是否拦截运行及应用安装位置，并先退出旧实例再重试。不要用 Mac 的 DMG 在 Windows 上安装。</div></details>
+      <details><summary>为什么看不到 Codex 聊天列表？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">确认是 Codex 桌面应用、已登录并打开目标聊天。先看电脑窗口是否显示具体聊天已连接。Mac 预览版若没有可用的聊天列表端点，会读取本机最近聊天索引；索引没有内容或 Codex 主通道不可用时仍可能无法选择。</div></details>
+      <details><summary>能看到聊天，但发消息或审批没有反应？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">先确认电脑上的 Codex 仍在运行、手机选中正确的聊天，并检查 Agent Bridge 窗口日志。审批要在请求有效期内处理；过期或已经由另一设备处理的请求不能再次批准。发消息后若提示失败，不要连续重发同一指令，先核对电脑聊天里是否已收到。</div></details>
+      <details><summary>连接状态是绿色，为什么还收不到聊天？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">绿色状态只表示当前连接检查通过，不等于 Codex 正在生成回复，也不保证系统通知已显示。确认移动端选中了正确聊天、电脑 Codex 主通道仍连接；有结果时先在应用内查看，再检查系统通知权限。</div></details>
+      <details><summary>Mac 安装包提示无法验证或没有权限？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">当前 DMG 是 Apple 芯片预览包，使用本地测试签名，未经苹果公证。把 App 从 DMG 拖入“应用程序”，从那里启动；若系统拦截，在“系统设置 → 隐私与安全性”审核该 App 后选择打开。Intel Mac 尚未完成实际接入验收。</div></details>
+      <details><summary>iPad 为什么没有“添加到主屏幕”或通知？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">用 Safari 打开电脑的 HTTPS 地址，在分享菜单中选择“添加到主屏幕”，再从主屏幕图标启动；介绍网站本身不是控制页面。网页通知要求 iOS／iPadOS 16.4+，并需在网页 App 和系统中允许通知。浏览器标签页里的权限状态与主屏幕网页 App 可能不同。</div></details>
+      <details><summary>Android 在前台有消息，后台却没有通知？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">检查 Agent Bridge 的通知权限、后台连接状态，以及手机对 Agent Bridge 和 Tailscale 的省电与后台运行限制。小米等机型还需检查应用后台启动和通知类别。先确认通知栏里是否有“后台连接”通知；没有时优先恢复后台服务与网络，再做测试事件。</div></details>
+      <details><summary>为什么有时慢、有时通知会漏？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">任务完成到推送显示之间还经过电脑服务、Tailscale、手机网络和系统通知调度。电脑休眠、手机断网或省电策略可能造成延迟。电脑和手机不必同一 Wi-Fi，但必须保持在线；审批以应用内待办状态为准，重要请求不要只依赖横幅。</div></details>
+      <details><summary>与 OpenAI、Tailscale 有官方合作吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">Agent Bridge 是独立开发的配套工具，与 OpenAI、Tailscale 无官方合作或背书关系。页面提及 Codex 和 Tailscale，是为了说明使用方式与连接依赖。现有连接方式可能需要随 Codex 桌面版本更新而适配。</div></details>
+      <details><summary>需要服务器，或者另外安装 Node.js 吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">不需要另租服务器。Windows 与 Mac 安装包均内置 Node.js，日常启动只需打开 Agent Bridge。电脑上的 Codex 和 Agent Bridge 需要保持运行；首次安装仍需配置 Tailscale HTTPS。Codex hooks 是可选接入，安装前请先审核其内容。</div></details>
+      <details><summary>手机和电脑必须连同一个 Wi-Fi 吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">不必。两端需要登录同一 Tailscale 私有网络并保持在线，可以跨 Wi-Fi 和移动网络连接。实际连接速度和通知到达时间受网络质量、后台运行和系统电池管理影响。</div></details>
+      <details><summary>后台通知一定能收到吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">通知需要电脑在线、移动端网络畅通和系统权限开启。Android 需要开启后台连接，并允许 Agent Bridge 与 Tailscale 在后台运行；iPad / iPhone 需要添加到主屏幕并开启网页通知。系统省电策略或断网可能造成延迟，当前版本不能保证每一条提醒即时送达。</div></details>
+      <details><summary>手机和 iPad 能同时使用吗？<svg class="icon"><use href="#i-plus"/></svg></summary><div class="faq-answer">可以。电脑端选择“添加设备”为另一台设备生成配对码，每台设备可独立选择聊天。同一个请求只能处理一次。“重新配对”会撤销全部旧设备。Mac 预览版目前仅确认监测已选聊天，其他聊天的后台待办提醒仍待验收。</div></details>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container"><a class="brand" href="#top"><span class="brand-mark"><svg class="icon"><use href="#i-mark"/></svg></span><span>Agent Bridge</span></a><p>把 Codex 带在身边。</p><div><span>独立开发 · 非官方产品</span><a href="#download">获取预览版</a></div></div><p class="brand-notice container">Agent Bridge 为独立项目，与 OpenAI、Tailscale 无官方合作或背书关系。相关商标归各自权利人所有。</p></footer>
+  <dialog id="guide-dialog" aria-labelledby="guide-title"><div class="dialog-top"><span class="eyebrow">GET CONNECTED</span><button type="button" class="dialog-close" aria-label="关闭使用指南"><svg class="icon"><use href="#i-close"/></svg></button></div><h2 id="guide-title">使用指南</h2><div id="guide-body"></div><button type="button" class="button button-primary dialog-done">知道了</button></dialog>
+  <noscript><div class="noscript-note">下载和页面导航可直接使用。启用 JavaScript 后，还可以切换功能演示和查看弹出的使用指南。</div></noscript>
+</body>
+</html>

@@ -1,0 +1,40 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {defaultConfig} from '../lib/config.mjs';
+import {Store} from '../lib/store.mjs';
+import {BridgeServer} from '../lib/server.mjs';
+import {runHook} from '../hook.mjs';
+
+for(const choice of ['approve','deny']) test('完整 hook→HTTP→手机接口→Codex 契约：'+choice, async t=>{
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'bridge-hook-http-'));
+  const config=defaultConfig();
+  Object.assign(config,{port:0,pairedAt:Date.now(),hookToken:'hook-fixture',appToken:'phone-fixture'});
+  config.push.decisionWaitMs=1000;
+  const store=new Store(dir);
+  const bridge=new BridgeServer({config,store,logger:{log(){},warn(){},error(){}}});
+  bridge.pushEvent=async()=>({ok:0,failed:0,details:[]});
+  const address=await bridge.start();config.port=address.port;
+  t.after(async()=>{await bridge.stop();fs.rmSync(dir,{recursive:true,force:true});});
+  const base='http://127.0.0.1:'+address.port;
+  const headers={Authorization:'Bearer phone-fixture'};
+  await fetch(base+'/api/native/poll',{headers});
+  const command='echo '+('完整命令'.repeat(500));
+  const response=runHook({mode:'permission',config,stdinText:JSON.stringify({hook_event_name:'PermissionRequest',session_id:'test-thread',turn_id:'test-turn',tool_use_id:'call-'+choice,tool_name:'Bash',cwd:'D:/example',tool_input:{command,description:'请允许这条具体命令'}})});
+  let event;
+  for(let i=0;i<100;i++){event=store.listEvents()[0];if(event)break;await new Promise(r=>setTimeout(r,5));}
+  assert.ok(event);
+  const detail=await(await fetch(base+'/api/events/'+event.id,{headers})).json();
+  assert.ok(detail.event.body.includes(command));
+  assert.equal(detail.event.sessionId,'test-thread');
+  const poll=await(await fetch(base+'/api/native/poll',{headers})).json();
+  const request=poll.events.find(e=>e.id===event.id);
+  const result=await fetch(base+'/api/events/'+event.id+'/decision',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({choice,replyToken:request.replyToken,via:'android-notification'})});
+  assert.equal(result.status,200);
+  const hook=await response;
+  assert.equal(JSON.parse(hook.stdout).hookSpecificOutput.decision.behavior,choice==='approve'?'allow':'deny');
+  const opposite=await fetch(base+'/api/events/'+event.id+'/decision',{method:'POST',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({choice:choice==='approve'?'deny':'approve'})});
+  assert.equal(opposite.status,409);
+});

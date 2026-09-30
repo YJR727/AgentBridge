@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Agent Bridge">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#g)"/>
+  <rect x="102" y="225" width="308" height="46" rx="8" fill="#ffffff"/>
+  <rect x="133" y="225" width="51" height="154" rx="8" fill="#ffffff"/>
+  <rect x="328" y="225" width="51" height="154" rx="8" fill="#ffffff"/>
+  <path d="M150 379 A106 106 0 0 1 362 379" fill="none" stroke="#ffffff" stroke-width="28" stroke-linecap="round"/>
+</svg>
