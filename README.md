@@ -1,71 +1,73 @@
 # Agent Bridge
 
-Agent Bridge connects a phone or iPad to Codex running on your own computer. It lets you send a message to an existing Codex chat, read its latest reply, and review questions or approval requests from a mobile device.
+**简体中文** | [English](README.en.md)
 
-This is a personal, experimental project. The repository is private and currently has no open-source license.
+Agent Bridge 将手机或 iPad 连接到您自己电脑上运行的 Codex。您可以在移动设备上向已有聊天发送消息、查看最新回复，并处理 Codex 提出的问题或审批请求。
 
-## What is included
+这是一个个人实验项目。当前仓库为私有仓库，项目没有开源许可证。
 
-| Component | Location | Notes |
+## 项目内容
+
+| 组件 | 目录 | 说明 |
 | --- | --- | --- |
-| Windows desktop control app | `desktop/` | Native C# / WPF window; packages the local Node.js service. |
-| Local bridge service | project root, `lib/`, `hook.mjs` | Node.js service; no npm runtime dependencies. |
-| Android app | `android/` | Native APK source and build script. |
-| iPad web app | `public/` | Installable Safari web app (PWA). |
-| macOS desktop app | `desktop-mac/` | SwiftUI source and Mac build scripts. Build and device integration are experimental. |
-| Product website | `website/` | Static introduction and help pages with the current packaged downloads. |
+| Windows 桌面控制端 | `desktop/` | 原生 C# / WPF 窗口，打包本地 Node.js 服务。 |
+| 本地桥接服务 | 项目根目录、`lib/`、`hook.mjs` | Node.js 服务，无 npm 运行时依赖。 |
+| Android 应用 | `android/` | 原生 Android APK 源码和构建脚本。 |
+| iPad 网页应用 | `public/` | 可从 Safari 添加到主屏幕的网页应用（PWA）。 |
+| macOS 桌面应用 | `desktop-mac/` | SwiftUI 源码和 Mac 构建脚本；构建和设备接入仍属实验状态。 |
+| 产品介绍网站 | `website/` | 静态介绍和帮助页面，包含当前打包版本的下载文件。 |
 
-## How it works
+## 工作方式
 
 ```text
-Codex on your computer
-        │ local desktop connection
-Agent Bridge service (127.0.0.1:4571)
-        │ HTTPS through Tailscale Serve
-Android app / iPad web app
+电脑上的 Codex
+        │ 本地桌面连接
+Agent Bridge 服务（127.0.0.1:4571）
+        │ Tailscale Serve 提供 HTTPS
+Android 应用 / iPad 网页应用
 ```
 
-The service stays on the computer and listens on loopback. Tailscale provides the private network path between the computer and mobile devices. Agent Bridge does not run a hosted relay or store chats in a cloud service. Any paired device can send messages and respond to the supported questions or approval requests, so only pair devices you trust.
+服务运行在电脑上，并只监听本机回环地址。Tailscale 在电脑和移动设备之间提供私有网络连接。Agent Bridge 不提供云端中继服务，也不把聊天存到云端。已配对的设备可以发送消息并回复支持的问题或审批请求，请只配对您信任的设备。
 
-The current Codex desktop integration uses a local desktop IPC interface whose compatibility may change with Codex updates. It is not a stable public Codex API. Check the current platform notes before relying on a particular Codex version; this project is not affiliated with OpenAI or Tailscale.
+目前，Codex 桌面端通过本地桌面 IPC 接口接入；该接口兼容性可能随 Codex 更新而变化，它不是稳定的公开 Codex API。使用前请查看当前平台说明，并针对目标 Codex 版本自行验证。本项目与 OpenAI、Tailscale 均无关联。
 
-## Quick start
+## 快速开始
 
-1. Install and sign in to Tailscale on the computer and mobile device. They must be on the same tailnet.
-2. Install and open Codex on the computer, then open the chat you want to control.
-3. Install Agent Bridge for your platform and start its computer service. The Windows app and the Mac source build provide a desktop control window; Android and iPad connect to that computer service.
-4. Configure Tailscale Serve to forward HTTPS traffic to `http://127.0.0.1:4571`. See [Tailscale and connection troubleshooting](docs/FAQ.md#tailscale-and-connection).
-5. In the desktop control window, create a pairing code. Enter the computer's HTTPS address and code in the Android or iPad app.
-6. Select a chat on the mobile device. Send a message, read the response, or open **To-do** to inspect and answer a request.
+1. 在电脑和移动设备上安装并登录 Tailscale，确保两台设备位于同一个 tailnet。
+2. 在电脑上安装并打开 Codex，再打开要控制的聊天。
+3. 安装并启动对应平台的 Agent Bridge 电脑端服务。Windows 应用和 Mac 源码构建版提供桌面控制窗口；Android 和 iPad 连接到这台电脑上的服务。
+4. 配置 Tailscale Serve，将 HTTPS 流量转发到 `http://127.0.0.1:4571`。详见[连接与 Tailscale 常见问题](docs/FAQ.md#tailscale-and-connection)。
+5. 在电脑控制窗口生成配对码，在 Android 或 iPad 上填写电脑的 HTTPS 地址和配对码。
+6. 在移动设备上选择聊天。您可以发送消息、查看回复，或打开“待办”查看并回答请求。
 
-See the platform guides for full setup details:
+各平台的详细步骤：
 
-- [Windows desktop](desktop/README.md)
+- [Windows 桌面端](desktop/README.md)
 - [Android](android/README.md)
 - [macOS](desktop-mac/README.md)
-- [Common questions and troubleshooting](docs/FAQ.md)
-- [Product website](website/README.md)
+- [常见问题与故障排查](docs/FAQ.md)
+- [产品介绍网站](website/README.md)
 
-## Build and test
+## 构建与测试
 
-Requirements vary by platform. The local service requires Node.js 20.11 or newer. The Android and Mac builds also need their platform build tools; the Mac application must be built on macOS.
+各平台的要求有所不同。本地服务需要 Node.js 20.11 或更新版本。Android 和 Mac 应用需要各自的平台构建工具；Mac 应用必须在 macOS 上构建。
 
 ```sh
 npm test
 ```
 
-Platform-specific build and verification commands are documented in each platform guide. Automated tests use isolated local data; they do not prove that notifications will always arrive or that every Codex version remains compatible.
+各平台的构建和验证命令见对应说明。自动化测试使用隔离的本地数据；测试通过不代表通知一定送达，也不代表所有 Codex 版本都兼容。
 
-## Security and privacy
+## 安全与隐私
 
-- Keep the service bound to loopback and use a private VPN path. Do not expose port `4571` directly to the public internet or configure Tailscale Funnel for it.
-- A paired device can control supported actions in the selected Codex chats. Re-pair if a device is lost or no longer trusted.
-- Local pairing state, push credentials, logs and runtime data live under `data/` and are excluded from Git. Signing keys and downloaded build tools are also excluded.
-- Review changes to hooks and trust them only when you understand what they do. See `hook.mjs`, `hooks.template.json` and `tools/install.mjs`.
-- Do not commit pairing codes, private keys, certificates, personal Tailscale addresses, local logs or chat contents.
+- 保持服务只监听本机回环地址，并使用私有 VPN 网络连接。不要将 `4571` 端口直接暴露到公网，也不要为它配置 Tailscale Funnel。
+- 已配对设备可以控制所选 Codex 聊天中的支持操作。设备丢失或不再可信时，请重新配对。
+- 配对状态、推送凭据、日志和运行数据保存在 `data/` 中，并已从 Git 排除。签名密钥和下载的构建工具也会被排除。
+- 修改 hook 前请先阅读并确认其行为：`hook.mjs`、`hooks.template.json` 和 `tools/install.mjs`。
+- 不要提交配对码、私钥、证书、个人 Tailscale 地址、本机日志或聊天内容。
 
-See [SECURITY.md](SECURITY.md) for reporting guidance. No `LICENSE` file is provided, so this repository does not grant permission to redistribute or reuse the code.
+安全问题请查看 [SECURITY.md](SECURITY.md)。仓库没有 `LICENSE` 文件，因此当前并未授予他人复制、分发或复用代码的许可。
 
-## Project status
+## 项目状态
 
-Windows, Android and iPad have been used in the existing setup. The macOS app and its Codex integration remain experimental and require validation on the target Mac and Codex version. Notification delivery depends on the network and mobile operating system's background rules; delivery is not guaranteed.
+Windows、Android 和 iPad 已在现有设备环境中使用过。macOS 应用及其 Codex 接入仍属实验状态，需要在目标 Mac 和 Codex 版本上验证。通知是否送达取决于网络和移动操作系统的后台规则，不能保证始终送达。
