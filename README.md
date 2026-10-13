@@ -17,7 +17,7 @@
   <img alt="macOS Apple Silicon" src="https://img.shields.io/badge/macOS-Apple%20Silicon-111111?logo=apple&logoColor=white">
 </p>
 
-> 个人实验项目，当前仓库为私有仓库。macOS 版本仅支持 Apple 芯片，仍处于预览阶段。项目没有开源许可证。
+> 个人实验项目，当前仓库为私有仓库。项目代码按 GNU GPL-3.0-only 授权；第三方组件保留各自许可证。macOS 版本仅支持 Apple 芯片，仍处于预览阶段。
 
 ## 工作方式
 
@@ -92,5 +92,5 @@ Android、Windows 和 macOS 的构建及验证依赖平台工具；macOS 应用�
 - 签名密钥、证书和构建工具不应提交。修改 hook 前先检查 `hook.mjs`、`hooks.template.json` 与 `tools/install.mjs`。
 - 本项目通过 Codex 桌面端本地 IPC 接入；该接口不是稳定的公开 API，可能随 Codex 更新而变化。
 
-安全问题请参阅 [SECURITY.md](SECURITY.md)。项目与 OpenAI、Tailscale 均无关联或官方背书。仓库没有 `LICENSE` 文件，因此未授予他人复制、分发或复用代码的许可。
+安全问题请参阅 [SECURITY.md](SECURITY.md)。项目与 OpenAI、Tailscale 均无关联或官方背书。项目代码按 [GNU GPL-3.0-only](LICENSE) 授权；第三方组件按其各自附带的许可证执行。
 
