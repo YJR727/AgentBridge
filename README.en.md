@@ -17,7 +17,7 @@
   <img alt="macOS Apple Silicon" src="https://img.shields.io/badge/macOS-Apple%20Silicon-111111?logo=apple&logoColor=white">
 </p>
 
-> Personal experimental project. This repository is private. Project code is licensed under GNU GPL-3.0-only; third-party components retain their respective licenses. The macOS preview supports Apple Silicon only.
+> Personal experimental project. Project code is licensed under GNU GPL-3.0-only; third-party components retain their respective licenses. The macOS preview supports Apple Silicon only.
 
 ## How it works
 
