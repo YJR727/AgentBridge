@@ -2,6 +2,7 @@
   "name": "agent-bridge",
   "version": "0.4.0",
   "private": true,
+  "license": "GPL-3.0-only",
   "type": "module",
   "description": "把 Codex 的完成/批准/提问/出错事件推到手机，并能从手机直接回复。零 npm 依赖。",
   "engines": {
