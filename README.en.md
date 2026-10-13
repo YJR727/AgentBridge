@@ -17,7 +17,7 @@
   <img alt="macOS Apple Silicon" src="https://img.shields.io/badge/macOS-Apple%20Silicon-111111?logo=apple&logoColor=white">
 </p>
 
-> Personal experimental project. This repository is private. The macOS preview supports Apple Silicon only. No open-source license is provided.
+> Personal experimental project. This repository is private. Project code is licensed under GNU GPL-3.0-only; third-party components retain their respective licenses. The macOS preview supports Apple Silicon only.
 
 ## How it works
 
@@ -92,5 +92,5 @@ Building Windows, Android, and macOS apps requires platform-specific tools. The 
 - Do not commit signing keys, certificates, or build tools. Review `hook.mjs`, `hooks.template.json`, and `tools/install.mjs` before changing hooks.
 - The project connects through a local Codex desktop IPC interface. It is not a stable public API and may change with Codex updates.
 
-For security reports, see [SECURITY.md](SECURITY.md). Agent Bridge is not affiliated with or endorsed by OpenAI or Tailscale. No `LICENSE` file is present, so no permission is granted to copy, distribute, or reuse this code.
+For security reports, see [SECURITY.md](SECURITY.md). Agent Bridge is not affiliated with or endorsed by OpenAI or Tailscale. Project code is licensed under [GNU GPL-3.0-only](LICENSE); third-party components remain under their respective licenses.
 
