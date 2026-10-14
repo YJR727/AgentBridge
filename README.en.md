@@ -41,10 +41,10 @@ The service runs on your computer and listens only on loopback. Tailscale provid
 
 | Platform | Download / guide | Status |
 | --- | --- | --- |
-| Windows | [Installer](website/downloads/AgentBridge-Setup-0.2.5.exe) · [Guide](desktop/README.md) | Preview · x64 |
-| Android | [APK](website/downloads/agent-bridge-0.4.2.apk) · [Guide](android/README.md) | Preview |
-| macOS | [Apple Silicon DMG](website/downloads/AgentBridge-macOS-0.1.0-arm64.dmg) · [Guide](desktop-mac/README.md) | Preview · M-series and newer only |
-| iPhone / iPad | [Web app](public/index.html) · [Connection guide](docs/FAQ.md#tailscale-and-connection) | Add to Home Screen from Safari |
+| Windows | [Visit website to download](https://yjr727.github.io/AgentBridge/) · [Guide](desktop/README.md) | Preview · x64 |
+| Android | [Visit website to download](https://yjr727.github.io/AgentBridge/) · [Guide](android/README.md) | Preview |
+| macOS | [Visit website to download](https://yjr727.github.io/AgentBridge/) · [Guide](desktop-mac/README.md) | Preview · M-series and newer only |
+| iPhone / iPad | [Visit website for the web app](https://yjr727.github.io/AgentBridge/) · [Connection guide](docs/FAQ.md#tailscale-and-connection) | Add to Home Screen from Safari |
 
 Packages have not been validated on every device. The Mac DMG uses a local test signature and is not notarized, so macOS may show a security prompt on first launch. The current Mac package does not support Intel Macs.
 
