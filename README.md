@@ -4,7 +4,7 @@
   <p><strong>把电脑上的 Codex，带到手机上继续。</strong></p>
   <p>连接你自己的电脑与 Android、iPhone 或 iPad，接续已有聊天、查看回复，并处理问题和审批。</p>
   <p>
-    <a href="website/">产品介绍与下载</a> ·
+    <a href="https://yjr20250822-ctrl.github.io/AgentBridge/">产品介绍与下载</a> ·
     <a href="docs/FAQ.md">常见问题</a> ·
     <a href="README.en.md">English</a>
   </p>
