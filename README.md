@@ -41,10 +41,10 @@
 
 | 平台 | 下载 / 指引 | 当前状态 |
 | --- | --- | --- |
-| Windows | [前往介绍网站下载](https://yjr727.github.io/AgentBridge/) · [安装说明](desktop/README.md) | 预览版 · x64 |
-| Android | [前往介绍网站下载](https://yjr727.github.io/AgentBridge/) · [安装说明](android/README.md) | 预览版 |
-| macOS | [前往介绍网站下载](https://yjr727.github.io/AgentBridge/) · [安装说明](desktop-mac/README.md) | 预览版 · 仅 M 系列及更新芯片 |
-| iPhone / iPad | [前往介绍网站查看网页应用](https://yjr727.github.io/AgentBridge/) · [连接说明](docs/FAQ.md#tailscale-and-connection) | Safari 添加到主屏幕 |
+| Windows | [下载 Windows 版](https://yjr727.github.io/AgentBridge/) · [安装说明](desktop/README.md) | 预览版 · x64 |
+| Android | [下载 Android APK](https://yjr727.github.io/AgentBridge/) · [安装说明](android/README.md) | 预览版 |
+| macOS | [下载 Mac 版](https://yjr727.github.io/AgentBridge/) · [安装说明](desktop-mac/README.md) | 预览版 · 仅 M 系列及更新芯片 |
+| iPhone / iPad | [查看 iPhone/iPad 使用方式](https://yjr727.github.io/AgentBridge/) · [连接说明](docs/FAQ.md#tailscale-and-connection) | Safari 添加到主屏幕 |
 
 安装包未经全面设备验收。Mac DMG 使用本地测试签名且未经 Apple 公证；首次打开时 macOS 可能显示安全提示。Intel Mac 不支持当前 Mac 安装包。
 
