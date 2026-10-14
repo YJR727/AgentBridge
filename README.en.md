@@ -4,7 +4,7 @@
   <p><strong>Take Codex on your computer with you.</strong></p>
   <p>Connect your own computer to Android, iPhone, or iPad to continue existing chats, read replies, and handle questions or approvals.</p>
   <p>
-    <a href="https://yjr20250822-ctrl.github.io/AgentBridge/">Product site & downloads</a> ·
+    <a href="https://yjr727.github.io/AgentBridge/">Product site & downloads</a> ·
     <a href="docs/FAQ.md">FAQ</a> ·
     <a href="README.md">简体中文</a>
   </p>
